@@ -1,5 +1,7 @@
 package edu.bigdata.training.testservice.model;
 
+import edu.bigdata.training.testservice.controller.model.Person;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -10,6 +12,11 @@ public class PersonEntity {
     public PersonEntity(String name) {
         this.id = UUID.randomUUID();
         this.name = name;
+    }
+
+    public PersonEntity(Person person, String id) {
+        this.id = UUID.fromString(id);
+        this.name = person.getName();
     }
 
     public UUID getId() {

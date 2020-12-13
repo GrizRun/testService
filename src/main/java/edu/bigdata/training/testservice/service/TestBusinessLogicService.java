@@ -21,11 +21,24 @@ public class TestBusinessLogicService {
         return personEntity;
     }
 
+
     public PersonEntity processGet(String id){
         return testServiceRepository.get(UUID.fromString(id));
     }
 
     public List<PersonEntity> processGetAll(){
         return testServiceRepository.getAll();
+    }
+
+    public void processDelete(String id) {
+        testServiceRepository.delete(UUID.fromString(id));
+    }
+
+    public void processUpdate(PersonEntity personEntity) {  }
+
+    public PersonEntity processUpdate(Person person, String id) {
+        PersonEntity personEntity = new PersonEntity(person, id);
+        testServiceRepository.save(personEntity);
+        return personEntity;
     }
 }
