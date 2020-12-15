@@ -1,2 +1,4 @@
 /target/
 /.idea/
+/test-service.iml
+/stack.yml

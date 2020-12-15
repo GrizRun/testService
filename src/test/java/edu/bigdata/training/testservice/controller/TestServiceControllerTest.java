@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -88,7 +89,7 @@ public class TestServiceControllerTest {
         mvc.perform(delete("/person/" + personEntity.getId()))
                 .andExpect(status().isOk());
 
-
+        Assert.assertEquals(Collections.EMPTY_LIST, entityUtils.getAllPersonEntity());
     }
 
     @Test

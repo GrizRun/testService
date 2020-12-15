@@ -5,6 +5,7 @@ import edu.bigdata.training.testservice.model.PersonEntity;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.ignite.Ignite;
 
+import java.util.List;
 import java.util.UUID;
 
 public class EntityUtils {
@@ -32,6 +33,11 @@ public class EntityUtils {
     public PersonEntity getPersonEntity(String id) {
         PersonEntity personEntity = testServiceRepository.get(UUID.fromString(id));
         return personEntity;
+    }
+
+    public List<PersonEntity> getAllPersonEntity() {
+        List<PersonEntity> persons = testServiceRepository.getAll();
+        return persons;
     }
 
     public static PersonEntity createPersonEntity() {
